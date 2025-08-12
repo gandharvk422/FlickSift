@@ -4,7 +4,7 @@ from huggingface_hub import hf_hub_download
 
 st.set_page_config(page_title="FlickSift - Discover Your Perfect Movie Instantly", page_icon=":movie:")
 
-path = hf_hub_download(repo_id="gandharvk422/similarity-data", filename="similarity.pkl")
+path = hf_hub_download(repo_id="gandharvk422/similarity-data", filename="similarity.pkl", repo_type="dataset")
 with open(path, "rb") as file:
     similarity = pkl.load(file)
 
@@ -38,4 +38,5 @@ if st.button("Show Recommendations"):
     st.text(movie_name[2])
     st.text(movie_name[3])
     st.text(movie_name[4])
+
 
