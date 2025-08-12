@@ -1,9 +1,11 @@
-import streamlit as st
 import pickle as pkl
+import streamlit as st
+from huggingface_hub import hf_hub_download
 
 st.set_page_config(page_title="FlickSift - Discover Your Perfect Movie Instantly", page_icon=":movie:")
 
-with open("similarity.pkl", "rb") as file:
+path = hf_hub_download(repo_id="gandharvk422/similarity.pkl", filename="similarity.pkl")
+with open(path, "rb") as file:
     similarity = pkl.load(file)
 
 with open("movies_list.pkl", "rb") as file:
